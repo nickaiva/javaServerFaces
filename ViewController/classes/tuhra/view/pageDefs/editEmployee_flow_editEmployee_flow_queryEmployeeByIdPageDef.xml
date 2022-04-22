@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36"
+                id="editEmployee_flow_editEmployee_flow_queryEmployeeByIdPageDef"
+                Package="tuhra.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="EditEmployee" RangeSize="25"
+              DataControl="TuhraServiceDataControl" id="EditEmployeeIterator"/>
+  </executables>
+  <bindings>
+    <action id="queryEmployeeById" RequiresUpdateModel="true"
+            Action="invokeMethod" MethodName="queryEmployeeById"
+            IsViewObjectMethod="true" DataControl="TuhraServiceDataControl"
+            InstanceName="TuhraServiceDataControl.EditEmployee"
+            IterBinding="EditEmployeeIterator">
+      <NamedData NDName="id" NDValue="#{pageFlowScope.employeeId}"
+                 NDType="oracle.jbo.domain.Number"/>
+    </action>
+  </bindings>
+</pageDefinition>

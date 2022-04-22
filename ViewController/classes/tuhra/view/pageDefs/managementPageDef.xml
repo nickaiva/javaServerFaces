@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.56.60" id="managementPageDef"
+                Package="tuhra.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="templates.tuhraTemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="AllJobCodes" RangeSize="25"
+              DataControl="TuhraServiceDataControl" id="AllJobCodesIterator"/>
+    <iterator Binds="AllDepartmentCodes" RangeSize="25"
+              DataControl="TuhraServiceDataControl"
+              id="AllDepartmentCodesIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AllJobCodesIterator" id="AllJobCodes">
+      <nodeDefinition DefName="tuhra.model.queries.main.AllJobCodes"
+                      Name="AllJobCodes0">
+        <AttrNames>
+          <Item Value="JobId"/>
+          <Item Value="JobTitle"/>
+          <Item Value="MaxSalary"/>
+          <Item Value="MinSalary"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="AllDepartmentCodesIterator" id="AllDepartmentCodes">
+      <nodeDefinition DefName="tuhra.model.queries.main.AllDepartmentCodes"
+                      Name="AllDepartmentCodes0">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="LocationId"/>
+          <Item Value="ManagerId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="AllJobCodesIterator" id="Execute1"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="AllJobCodesIterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="AllJobCodesIterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="AllDepartmentCodesIterator" id="Execute"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="AllDepartmentCodesIterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="AllDepartmentCodesIterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

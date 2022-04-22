@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">management</property>
+      <property
+         name="page">/management.jspx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>management&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">222.29883</property>
+      <property
+         name="x">355.0</property>
+   </View>
+   <TaskFlowReturn
+      id="TaskFlowReturn3">
+      <property
+         name="activityId">returnToSearch</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>returnToSearch&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  search&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">219.79297</property>
+      <property
+         name="x">577.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowReturn3">
+      <property
+         name="fromOutcome">search</property>
+      <property
+         name="sdm:polyPoints">R50,396.0,221.94824,536.0,219.44238,L50</property>
+   </ControlFlowCase>
+</SDM>

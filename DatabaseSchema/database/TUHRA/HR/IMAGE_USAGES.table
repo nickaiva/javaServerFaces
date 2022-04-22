@@ -1,0 +1,341 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1112/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">262c9c63-c4cd-4463-81dd-3d99a9a614c5</identifier>
+  </ID>
+  <name>IMAGE_USAGES</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">2974b69a-6d6d-48a6-8e0e-1bda0317eaf1</identifier>
+      </ID>
+      <name>IMAGE_ID</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">bc5f423a-a672-487f-990e-7cce5ccca0a7</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">6</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">The image referenced
+by this usage.</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">8ef8c579-9246-4045-ad48-91afe4d309db</identifier>
+      </ID>
+      <name>USAGE_TYPE</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">966d8d32-84aa-46fa-9601-8e20b9c9f0d4</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">&apos;E&apos;</default>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">What this image is
+associated with, for
+example, “E” means
+that this is an image
+for an employee.</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">d18b4e1f-d40c-4673-abdf-c31b0714f449</identifier>
+      </ID>
+      <name>ASSOCIATED_ID</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">dec83ef5-c3ba-4955-9227-c76552dbc27c</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">6</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">The unique ID
+value (for example,
+EMPLOYEE_ID) of the
+object with which the
+image is associated.</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">4f70585b-f97a-4047-8cad-861426069193</identifier>
+      </ID>
+      <name>DEFAULT_IMAGE</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">a8f7a060-40ab-4ba8-b0d1-73e4e7e137a2</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">&apos;N&apos;</default>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">“Y” if this image is the
+image used most often
+for the associated
+object. “N” otherwise.</value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">97066ea5-5082-47c3-85cd-cdd31bc0d9dd</identifier>
+      </ID>
+      <name>IMAGE_USAGES_IMAGES_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>IMAGE_ID</name>
+          <identifier class="java.lang.String">2974b69a-6d6d-48a6-8e0e-1bda0317eaf1</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>IMAGE_USAGES</name>
+            <identifier class="java.lang.String">262c9c63-c4cd-4463-81dd-3d99a9a614c5</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>IMAGES_PK</name>
+        <identifier class="java.lang.String">833e4345-c460-41f0-965b-41466eccc5bc</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>IMAGES</name>
+          <identifier class="java.lang.String">17d6c680-c701-4f12-bc9e-b2ee41b0adf6</identifier>
+          <schemaName>HR</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">0d051f4a-c56b-4b3a-8121-094094c0ade8</identifier>
+      </ID>
+      <name>IMAGE_USAGES_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>IMAGE_ID</name>
+          <identifier class="java.lang.String">2974b69a-6d6d-48a6-8e0e-1bda0317eaf1</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>IMAGE_USAGES</name>
+            <identifier class="java.lang.String">262c9c63-c4cd-4463-81dd-3d99a9a614c5</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>USAGE_TYPE</name>
+          <identifier class="java.lang.String">8ef8c579-9246-4045-ad48-91afe4d309db</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>IMAGE_USAGES</name>
+            <identifier class="java.lang.String">262c9c63-c4cd-4463-81dd-3d99a9a614c5</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>ASSOCIATED_ID</name>
+          <identifier class="java.lang.String">d18b4e1f-d40c-4673-abdf-c31b0714f449</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>IMAGE_USAGES</name>
+            <identifier class="java.lang.String">262c9c63-c4cd-4463-81dd-3d99a9a614c5</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.IdentifierBasedID">
+        <name>IMAGE_USAGES_PK</name>
+        <identifier class="java.lang.String">0deffc4c-1f97-4d86-b08c-85f4ad6fc4e3</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>IMAGE_USAGES</name>
+          <identifier class="java.lang.String">262c9c63-c4cd-4463-81dd-3d99a9a614c5</identifier>
+          <schemaName>HR</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>INDEX</type>
+      </indexID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">0deffc4c-1f97-4d86-b08c-85f4ad6fc4e3</identifier>
+      </ID>
+      <name>IMAGE_USAGES_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">6b52c472-de34-403c-91cf-1e2854ee9f4b</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">e398508e-b9c0-4fdf-90ff-417a3041d447</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>IMAGE_ID</name>
+              <identifier class="java.lang.String">2974b69a-6d6d-48a6-8e0e-1bda0317eaf1</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>IMAGE_USAGES</name>
+                <identifier class="java.lang.String">262c9c63-c4cd-4463-81dd-3d99a9a614c5</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>HR</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+        </columnExpression>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">538bbad0-0043-446e-a72c-4bb008988d93</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">ef8b44b1-8848-4123-8d66-a177afe03764</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>USAGE_TYPE</name>
+              <identifier class="java.lang.String">8ef8c579-9246-4045-ad48-91afe4d309db</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>IMAGE_USAGES</name>
+                <identifier class="java.lang.String">262c9c63-c4cd-4463-81dd-3d99a9a614c5</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>HR</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+        </columnExpression>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">00e97d00-9aaf-4ddc-9389-3cc4b978638e</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">c2a02195-6853-4331-bb49-126fcb5beb96</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>ASSOCIATED_ID</name>
+              <identifier class="java.lang.String">d18b4e1f-d40c-4673-abdf-c31b0714f449</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>IMAGE_USAGES</name>
+                <identifier class="java.lang.String">262c9c63-c4cd-4463-81dd-3d99a9a614c5</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>HR</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <parallelDegree>1</parallelDegree>
+      <schema>
+        <name>HR</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </indexe>
+  </indexes>
+  <properties>
+    <entry>
+      <key>Comment</key>
+      <value class="java.lang.String">Information
+about where the image in the IMAGES table is utilized</value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>HR</name>
+  </schema>
+</table>

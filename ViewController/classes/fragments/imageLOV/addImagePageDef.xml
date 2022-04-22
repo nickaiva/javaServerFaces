@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="addImagePageDef"
+                Package="fragments.imageLOV">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="templates.tuhraTrainTemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+  </executables>
+  <bindings>
+    <methodAction id="createNewImageForEmployee"
+                  InstanceName="TuhraServiceDataControl.dataProvider"
+                  DataControl="TuhraServiceDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createNewImageForEmployee"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="employeeId" NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="imageName" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

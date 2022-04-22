@@ -1,0 +1,220 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1112/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">f6ab26e9-6293-44d8-8ee9-a85cf6d06c4e</identifier>
+  </ID>
+  <name>BIOGRAPHIES</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">1ccfdb92-4a60-41e0-8063-665f0d2e5749</identifier>
+      </ID>
+      <name>EMPLOYEE_ID</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">99a74dc2-1dad-4902-9b9f-2aa03103ff3e</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">6</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Unique identifier
+for the biography
+text for an
+employee.</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">c6036903-c712-450a-ac63-729a24389768</identifier>
+      </ID>
+      <name>BIO_UPDATED_DATE</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">8e77f9fb-fc79-4046-9afa-5b60c1f52bee</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">The date on
+which this
+biography was
+entered.</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">6abe03c5-1fba-44fc-b140-bf5426ffe74c</identifier>
+      </ID>
+      <name>BIOGRAPHY</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">2983acbd-6a5b-438e-84f8-e7cfab917b81</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle8</providerClass>
+          <typeName>CLOB</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Text that details
+relevant history,
+accomplishments,
+and notable
+events for the
+employee.</value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">ef7c98a4-0672-401c-8cb8-1bbf1374e499</identifier>
+      </ID>
+      <name>BIOGRAPHIES_EMPLOYEES_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>EMPLOYEE_ID</name>
+          <identifier class="java.lang.String">1ccfdb92-4a60-41e0-8063-665f0d2e5749</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>BIOGRAPHIES</name>
+            <identifier class="java.lang.String">f6ab26e9-6293-44d8-8ee9-a85cf6d06c4e</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>EMP_EMP_ID_PK</name>
+        <identifier class="java.lang.String">9693e4a3-20b2-494f-ad0b-d53545d69415</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>EMPLOYEES</name>
+          <identifier class="java.lang.String">46b20ab3-bd78-4213-99ea-669d79115d79</identifier>
+          <schemaName>HR</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">6655f0bf-0d9f-4c5f-bc8e-aceca2e63be8</identifier>
+      </ID>
+      <name>BIOGRAPHIES_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>EMPLOYEE_ID</name>
+          <identifier class="java.lang.String">1ccfdb92-4a60-41e0-8063-665f0d2e5749</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>BIOGRAPHIES</name>
+            <identifier class="java.lang.String">f6ab26e9-6293-44d8-8ee9-a85cf6d06c4e</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.IdentifierBasedID">
+        <name>BIOGRAPHIES_PK</name>
+        <identifier class="java.lang.String">7d0e438d-d04c-4f4e-aa46-7cf674299838</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>BIOGRAPHIES</name>
+          <identifier class="java.lang.String">f6ab26e9-6293-44d8-8ee9-a85cf6d06c4e</identifier>
+          <schemaName>HR</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>INDEX</type>
+      </indexID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">7d0e438d-d04c-4f4e-aa46-7cf674299838</identifier>
+      </ID>
+      <name>BIOGRAPHIES_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">ddbb629c-400d-49b7-8c66-aa8fc103c8cc</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">f6a44aac-e83c-4581-a389-d651cb3da9fc</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>EMPLOYEE_ID</name>
+              <identifier class="java.lang.String">1ccfdb92-4a60-41e0-8063-665f0d2e5749</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>BIOGRAPHIES</name>
+                <identifier class="java.lang.String">f6ab26e9-6293-44d8-8ee9-a85cf6d06c4e</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>HR</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <parallelDegree>1</parallelDegree>
+      <schema>
+        <name>HR</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </indexe>
+  </indexes>
+  <properties>
+    <entry>
+      <key>Comment</key>
+      <value class="java.lang.String">A description of relevant history,
+accomplishments, and notable events for an employee.</value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>HR</name>
+  </schema>
+</table>

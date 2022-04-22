@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/imageLOV-flow.xml" id="imageLOV-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="true">
+      <input-parameter name="currentEmpId"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/departmentTree-flow.xml" id="departmentTree-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false"/>
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/management-flow.xml" id="management-flow" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/editEmployee-flow.xml" id="editEmployee-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false">
+      <input-parameter name="employeeId"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/searchEmployees-flow.xml" id="searchEmployees-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false"/>
+</task-flow-registry>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="editEmployee-flow">
+    <default-activity id="__1">checkForExplicitID</default-activity>
+    <input-parameter-definition id="__11">
+      <name id="__12">employeeId</name>
+      <value>#{pageFlowScope.employeeId}</value>
+    </input-parameter-definition>
+    <managed-bean id="__8">
+      <managed-bean-name id="__9">employeeEditBB</managed-bean-name>
+      <managed-bean-class id="__10">tuhra.view.backing.EmployeeEditBean</managed-bean-class>
+      <managed-bean-scope id="__7">view</managed-bean-scope>
+    </managed-bean>
+    <view id="editEmployee">
+      <page>/fragments/editEmployee.jsff</page>
+    </view>
+    <router id="checkForExplicitID">
+      <case>
+        <expression>#{!empty pageFlowScope.employeeId}</expression>
+        <outcome id="__18">byId</outcome>
+      </case>
+      <default-outcome>currentUser</default-outcome>
+    </router>
+    <method-call id="queryEmployeeById">
+      <method>#{bindings.queryEmployeeById.execute}</method>
+      <outcome id="__19">
+        <fixed-outcome>queryEmployeeById</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">*</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">refresh</from-outcome>
+        <to-activity-id id="__5">checkForExplicitID</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id id="__14">checkForExplicitID</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome id="__17">currentUser</from-outcome>
+        <to-activity-id id="__15">editEmployee</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome id="__20">byId</from-outcome>
+        <to-activity-id id="__22">queryEmployeeById</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__23">
+      <from-activity-id id="__24">queryEmployeeById</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome id="__26">queryEmployeeById</from-outcome>
+        <to-activity-id id="__25">editEmployee</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Biographies"
+  Version="11.1.1.55.36"
+  DBObjectType="table"
+  DBObjectName="BIOGRAPHIES"
+  AliasName="Biographies"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="tuhra.model.framework.TuhraEntityImpl">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="EmployeeId"
+    IsNotNull="true"
+    Precision="6"
+    Scale="0"
+    ColumnName="EMPLOYEE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="BIOGRAPHIES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BioUpdatedDate"
+    IsNotNull="true"
+    ColumnName="BIO_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="BIOGRAPHIES"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Locked"
+    IsQueriable="false"
+    IsPersistent="false"
+    DefaultValue="true"
+    ColumnName="$none$"
+    SQLType="BIT"
+    Type="java.lang.Boolean"
+    ColumnType="$none$"/>
+  <Attribute
+    Name="Biography"
+    IsQueriable="false"
+    IsNotNull="true"
+    ColumnName="BIOGRAPHY"
+    SQLType="CLOB"
+    Type="oracle.jbo.domain.ClobDomain"
+    ColumnType="CLOB"
+    TableName="BIOGRAPHIES"/>
+  <AccessorAttribute
+    Name="Employees"
+    Association="tuhra.model.entities.assoc.BiographiesEmployeesFkAssoc"
+    AssociationEnd="tuhra.model.entities.assoc.BiographiesEmployeesFkAssoc.Employees"
+    AssociationOtherEnd="tuhra.model.entities.assoc.BiographiesEmployeesFkAssoc.Biographies"
+    Type="tuhra.model.entities.EmployeesImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="BiographiesPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="BIOGRAPHIES_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="tuhra.model.entities.Biographies.EmployeeId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010013">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010013"/>
+      <Attr Name="_checkCondition" Value='"EMPLOYEE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="tuhra.model.entities.Biographies.EmployeeId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010014">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010014"/>
+      <Attr Name="_checkCondition" Value='"BIO_UPDATED_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="tuhra.model.entities.Biographies.BioUpdatedDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010015">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010015"/>
+      <Attr Name="_checkCondition" Value='"BIOGRAPHY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="tuhra.model.entities.Biographies.Biography"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="BiographiesEmployeesFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="EMP_EMP_ID_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="BIOGRAPHIES_EMPLOYEES_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="tuhra.model.entities.Biographies.EmployeeId"/>
+    </AttrArray>
+  </Key>
+</Entity>

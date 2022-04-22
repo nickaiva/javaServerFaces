@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="departmentTree-flow">
+    <default-activity id="__1">departmentTree</default-activity>
+    <view id="departmentTree">
+      <page>/fragments/departmentTree.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

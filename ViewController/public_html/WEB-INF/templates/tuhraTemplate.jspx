@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <af:panelStretchLayout id="pt_psl1">
+      <f:facet name="center">
+        <af:panelSplitter id="pt_ps1" orientation="vertical"
+                          splitterPosition="30" positionedFromEnd="true">
+          <f:facet name="first">
+            <af:decorativeBox id="pt_db2" theme="light" topHeight="26px">
+              <f:facet name="center">
+                <af:facetRef facetName="content"/>
+              </f:facet>
+              <f:facet name="top">
+                <af:group id="pt_g1">
+                  <af:popup id="aboutPopup">
+                    <af:dialog id="pt_d1" title="About TUHRA2" type="ok"
+                               titleIconSource="/images/help.png">
+                      <af:panelGroupLayout id="pt_pgl3" halign="center"
+                                           valign="middle" layout="vertical">
+                        <af:outputFormatted value="The Ultimate Human Resources Application"
+                                            id="pt_of2"/>
+                        <af:outputFormatted value="Copyright &amp;copy; 2006, 2009"
+                                            id="pt_of3"/>
+                        <af:outputFormatted value="Created using JDev 11.1.1.2"
+                                            id="pt_of4"/>
+                      </af:panelGroupLayout>
+                    </af:dialog>
+                  </af:popup>
+                  <af:menuBar id="pt_mb1">
+                    <af:menu text="Action" id="pt_m2">
+                      <af:group id="pt_g2">
+                        <af:commandMenuItem text="Log in" id="pt_cmi3"
+                                            rendered="#{!securityContext.authenticated}">
+                          <af:showPopupBehavior popupId="pt_loginPopup"
+                                                triggerType="action"/>
+                        </af:commandMenuItem>
+                        <af:commandMenuItem text="Log out" id="pt_cmi4"
+                                            rendered="#{securityContext.authenticated}"
+                                            action="#{login.performLogout}"/>
+                        <af:commandMenuItem text="Edit My Information"
+                                            id="pt_cmi5" action="edit"
+                                            disabled="#{!securityContext.authenticated}">
+                          <af:setPropertyListener from="#{bindings.EmployeeId.inputValue.value}"
+                                                  to="#{uiState.editEmployeeId}"
+                                                  type="action"/>
+                        </af:commandMenuItem>
+                      </af:group>
+                      <af:commandMenuItem actionListener="#{bindings.Commit.execute}"
+                                          text="Save" id="pt_cmi2"/>
+                    </af:menu>
+                    <af:menu text="Help" id="pt_m1"
+                             textAndAccessKey="&amp;Help">
+                      <af:commandMenuItem text="About" id="pt_cmi1"
+                                          textAndAccessKey="&amp;About">
+                        <af:showPopupBehavior popupId="aboutPopup"
+                                              triggerType="action"/>
+                      </af:commandMenuItem>
+                    </af:menu>
+                  </af:menuBar>
+                  <af:popup id="pt_loginPopup">
+                    <af:panelWindow id="pt_pw1" title="Log In to TUHRA"
+                                    modal="true"
+                                    titleIconSource="/images/key.png">
+                      <af:panelFormLayout id="pt_pfl1">
+                        <f:facet name="footer">
+                          <af:panelGroupLayout id="pt_pgl1" layout="horizontal"
+                                               halign="end">
+                            <f:facet name="separator">
+                              <af:spacer width="4" height="10" id="pt_s1"/>
+                            </f:facet>
+                            <af:commandButton text="Log In" id="pt_cb1"
+                                              action="#{login.performLogin}"/>
+                            <af:commandButton text="Cancel" id="pt_cb2"
+                                              immediate="true"/>
+                          </af:panelGroupLayout>
+                        </f:facet>
+                        <af:inputText label="Username" id="pt_it1"
+                                      value="#{login.username}"/>
+                        <af:inputText label="Password" id="pt_it2" secret="true"
+                                      value="#{login.password}"/>
+                      </af:panelFormLayout>
+                    </af:panelWindow>
+                  </af:popup>
+                </af:group>
+              </f:facet>
+            </af:decorativeBox>
+          </f:facet>
+          <f:facet name="second">
+            <af:panelStretchLayout id="pt_psl3" startWidth="200px">
+              <f:facet name="center">
+                <af:panelGroupLayout id="pt_pgl2" halign="end"
+                                     layout="horizontal">
+                  <af:panelGroupLayout id="pt_pgl4" layout="vertical">
+                    <af:spacer width="230" height="8" id="pt_s2"/>
+                    <af:outputFormatted value="Copyright &amp;copy; TUHRA, Inc. All rights reserved."
+                                        id="pt_of1" styleUsage="pageStamp"
+                                        inlineStyle="text-align:right;"/>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+              </f:facet>
+              <f:facet name="start">
+                <af:panelGroupLayout id="pt_pgl5" layout="vertical">
+                  <af:spacer width="200" height="8" id="pt_s3"/>
+                  <af:panelGroupLayout id="pt_pgl6" layout="horizontal">
+                    <af:spacer width="4" height="10" id="pt_s4"/>
+                    <af:switcher id="pt_s5"
+                                 facetName="#{securityContext.authenticated?'loggedon':'loggedoff'}"
+                                 defaultFacet="loggedoff">
+                      <f:facet name="loggedoff">
+                        <af:outputFormatted value="[Not Connected]" id="pt_of5"
+                                            styleUsage="pageStamp"/>
+                      </f:facet>
+                      <f:facet name="loggedon">
+                        <af:outputFormatted value="[Connected as #{bindings.FirstName.inputValue} #{bindings.LastName.inputValue} #{securityContext.userName}]"
+                                            id="pt_of6" styleUsage="pageStamp"/>
+                      </f:facet>
+                    </af:switcher>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+        </af:panelSplitter>
+      </f:facet>
+      <f:facet name="top">
+        <af:decorativeBox id="pt_db1" theme="medium">
+          <f:facet name="center">
+            <af:panelGroupLayout id="panelGroupLayout1" layout="horizontal"
+                                 valign="middle">
+              <af:goLink id="goLink1" destination="http://www.tuhra.com"
+                         targetFrame="_blank">
+                <af:image source="/images/tuhra.png" id="image1"
+                          shortDesc="The Ultimate Human Resources Application 2.0 Website"
+                          inlineStyle="height:30.0px;"/>
+              </af:goLink>
+              <af:spacer width="20" height="10" id="spacer1"/>
+              <af:outputText value="#{attrs.pageTitle}" id="outputText1"
+                             inlineStyle="color:Navy; font-size:large;"/>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </f:facet>
+    </af:panelStretchLayout>
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>tuhraTemplate</display-name>
+        <facet>
+          <facet-name>content</facet-name>
+        </facet>
+        <attribute>
+          <attribute-name>pageTitle</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <default-value>TUHRA</default-value>
+        </attribute>
+      </component>
+    </af:xmlContent>
+  </af:pageTemplateDef>
+</jsp:root>

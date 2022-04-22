@@ -1,0 +1,544 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1112/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">61bad3e8-c1c1-425f-9257-06a1b04261f0</identifier>
+  </ID>
+  <name>COUNTRIES</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">a99dda04-ee00-4e17-b4ef-ef551c700706</identifier>
+      </ID>
+      <name>COUNTRY_ID</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">4fdd90a6-8705-4207-a31a-5c5413eaa811</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">2</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>CHAR</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>COUNTRY_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>COUNTRIES</name>
+                  <identifier class="java.math.BigDecimal">70284</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Primary key of countries table.</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>COUNTRY_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>COUNTRIES</name>
+              <identifier class="java.math.BigDecimal">70284</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">a48fde26-acbc-4c90-b8fd-f8565eab6dc4</identifier>
+      </ID>
+      <name>COUNTRY_NAME</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">3df5243f-063d-41ab-bcad-040e267bf438</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">40</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>COUNTRY_NAME</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>COUNTRIES</name>
+                  <identifier class="java.math.BigDecimal">70284</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Country name</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>COUNTRY_NAME</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>COUNTRIES</name>
+              <identifier class="java.math.BigDecimal">70284</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">1448e6c6-4e50-487a-928c-9a14f168a669</identifier>
+      </ID>
+      <name>REGION_ID</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">ec8528dd-8168-423b-b2b2-5fd2c41bfc55</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>REGION_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>COUNTRIES</name>
+                  <identifier class="java.math.BigDecimal">70284</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Region ID for the country. Foreign key to region_id column in the departments table.</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>REGION_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>COUNTRIES</name>
+              <identifier class="java.math.BigDecimal">70284</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">0c2592d5-0367-43a4-9803-b919725b4b4a</identifier>
+      </ID>
+      <name>COUNTRY_ID_NN</name>
+      <checkConditionFragment class="oracle.javatools.db.sql.WhereObject">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">8efec7a4-1df8-44bc-950b-8c891c898295</identifier>
+        </ID>
+        <arguments>
+          <argument class="oracle.javatools.db.sql.Comparison">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">682df9ca-571d-462c-95a1-a571507a876d</identifier>
+            </ID>
+            <comparator>44</comparator>
+            <leftExpression class="oracle.javatools.db.sql.ColumnUsage">
+              <ID class="oracle.javatools.db.IdentifierBasedID">
+                <identifier class="java.lang.String">d6f94648-7d2a-4693-8c43-790093d33423</identifier>
+              </ID>
+              <objectID class="oracle.javatools.db.IdentifierBasedID">
+                <name>COUNTRY_ID</name>
+                <identifier class="java.lang.String">a99dda04-ee00-4e17-b4ef-ef551c700706</identifier>
+                <parent class="oracle.javatools.db.IdentifierBasedID">
+                  <name>COUNTRIES</name>
+                  <identifier class="java.lang.String">61bad3e8-c1c1-425f-9257-06a1b04261f0</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <schemaName>HR</schemaName>
+                <type>COLUMN</type>
+              </objectID>
+              <outerJoin>false</outerJoin>
+              <properties>
+                <entry>
+                  <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                  <value class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <parent class="oracle.javatools.db.ReferenceID">
+                          <name>COUNTRY_ID_NN</name>
+                          <parent class="oracle.javatools.db.ReferenceID">
+                            <name>COUNTRIES</name>
+                            <identifier class="java.math.BigDecimal">70284</identifier>
+                            <schemaName>HR</schemaName>
+                            <type>TABLE</type>
+                          </parent>
+                          <subType>CheckConstraint</subType>
+                          <type>CONSTRAINT</type>
+                        </parent>
+                        <type>WHERE</type>
+                      </parent>
+                      <type>SQLFragment</type>
+                    </parent>
+                    <type>SQLFragment</type>
+                  </value>
+                </entry>
+              </properties>
+              <qualified>false</qualified>
+            </leftExpression>
+            <priorOnLeft>false</priorOnLeft>
+            <priorOnRight>false</priorOnRight>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>COUNTRY_ID_NN</name>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>COUNTRIES</name>
+                        <identifier class="java.math.BigDecimal">70284</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <subType>CheckConstraint</subType>
+                      <type>CONSTRAINT</type>
+                    </parent>
+                    <type>WHERE</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+          </argument>
+        </arguments>
+        <operator>372</operator>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>COUNTRY_ID_NN</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>COUNTRIES</name>
+                  <identifier class="java.math.BigDecimal">70284</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <subType>CheckConstraint</subType>
+                <type>CONSTRAINT</type>
+              </parent>
+              <type>WHERE</type>
+            </value>
+          </entry>
+        </properties>
+      </checkConditionFragment>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>COUNTRY_ID_NN</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>COUNTRIES</name>
+              <identifier class="java.math.BigDecimal">70284</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>CheckConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">0fefb014-9d9e-4172-bd1d-8471ce6b4350</identifier>
+      </ID>
+      <name>COUNTR_REG_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>REGION_ID</name>
+          <identifier class="java.lang.String">1448e6c6-4e50-487a-928c-9a14f168a669</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>COUNTRIES</name>
+            <identifier class="java.lang.String">61bad3e8-c1c1-425f-9257-06a1b04261f0</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>COUNTR_REG_FK</name>
+            <childObjectNames>
+              <childObjectName>REGION_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>COUNTRIES</name>
+              <identifier class="java.math.BigDecimal">70284</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>REG_ID_PK</name>
+        <identifier class="java.lang.String">ffdd0772-0c92-49ce-86e6-9c8ea6d556a1</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>REGIONS</name>
+          <identifier class="java.lang.String">2237601f-662f-4774-924c-449036ae2d08</identifier>
+          <schemaName>HR</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">e4173be2-8435-437b-a3e4-33e1f4bb6969</identifier>
+      </ID>
+      <name>COUNTRY_C_ID_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>COUNTRY_ID</name>
+          <identifier class="java.lang.String">a99dda04-ee00-4e17-b4ef-ef551c700706</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>COUNTRIES</name>
+            <identifier class="java.lang.String">61bad3e8-c1c1-425f-9257-06a1b04261f0</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.IdentifierBasedID">
+        <name>COUNTRY_C_ID_PK</name>
+        <identifier class="java.lang.String">b88931bb-0ef6-4c41-9076-6e81f26f093f</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>COUNTRIES</name>
+          <identifier class="java.lang.String">61bad3e8-c1c1-425f-9257-06a1b04261f0</identifier>
+          <schemaName>HR</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>INDEX</type>
+      </indexID>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>COUNTRY_C_ID_PK</name>
+            <childObjectNames>
+              <childObjectName>COUNTRY_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>COUNTRIES</name>
+              <identifier class="java.math.BigDecimal">70284</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <indexes>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">b88931bb-0ef6-4c41-9076-6e81f26f093f</identifier>
+      </ID>
+      <name>COUNTRY_C_ID_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">7418b675-0957-499a-ba26-96236dfe14d0</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">77a9fde5-33bf-4dd6-a3bf-879848d2105b</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>COUNTRY_ID</name>
+              <identifier class="java.lang.String">a99dda04-ee00-4e17-b4ef-ef551c700706</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>COUNTRIES</name>
+                <identifier class="java.lang.String">61bad3e8-c1c1-425f-9257-06a1b04261f0</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>HR</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <parallelDegree>1</parallelDegree>
+      <schema>
+        <name>HR</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </indexe>
+  </indexes>
+  <properties>
+    <entry>
+      <key>Comment</key>
+      <value class="java.lang.String">country table. Contains 25 rows. References with locations table.</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">HR_DB</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>COUNTRIES</name>
+        <identifier class="java.math.BigDecimal">70284</identifier>
+        <schemaName>HR</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleIndexOrganizedTableProperties</key>
+      <value class="oracle.javatools.db.ora.OracleIndexOrganizedTableProperties">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">98573c1d-8749-461a-a811-91cd57819448</identifier>
+        </ID>
+        <mapped>false</mapped>
+        <overflowable>false</overflowable>
+        <pctThreshold>50</pctThreshold>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>COUNTRIES</name>
+                <identifier class="java.math.BigDecimal">70284</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <type>IOT PROPERTIES</type>
+            </value>
+          </entry>
+        </properties>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">dd2d359d-e84f-4f61-b78d-dfe8ac2ab4dc</identifier>
+        </ID>
+        <bufferMode>DEFAULT</bufferMode>
+        <initialExtent>65536</initialExtent>
+        <initrans>2</initrans>
+        <logging>false</logging>
+        <maxExtent>2147483645</maxExtent>
+        <minExtent>1</minExtent>
+        <percentFree>10</percentFree>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>COUNTRIES</name>
+                <identifier class="java.math.BigDecimal">70284</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <type>OracleStorageProperties</type>
+            </value>
+          </entry>
+        </properties>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>EXAMPLE</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">INDEX_ORGANIZED</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>HR</name>
+  </schema>
+</table>

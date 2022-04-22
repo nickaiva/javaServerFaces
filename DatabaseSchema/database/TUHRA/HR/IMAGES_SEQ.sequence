@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<sequence xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">9cb04a5d-a6a8-44a0-924c-661837c25067</identifier>
+  </ID>
+  <name>IMAGES_SEQ</name>
+  <cycleFlag>false</cycleFlag>
+  <orderFlag>false</orderFlag>
+  <schema>
+    <name>HR</name>
+  </schema>
+</sequence>

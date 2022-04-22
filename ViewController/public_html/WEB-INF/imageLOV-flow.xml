@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="imageLOV-flow">
+    <default-activity id="__3">addImage</default-activity>
+    <input-parameter-definition id="__2">
+      <name id="__1">currentEmpId</name>
+      <value>#{pageFlowScope.currentEmpId}</value>
+      <class>oracle.jbo.domain.Number</class>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__14">
+      <managed-bean-name id="__12">imageUploadBB</managed-bean-name>
+      <managed-bean-class id="__15">tuhra.view.backing.ImageUploadBean</managed-bean-class>
+      <managed-bean-scope id="__13">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__16">
+      <managed-bean-name id="__17">defaultImageSelectionBB</managed-bean-name>
+      <managed-bean-class id="__18">tuhra.view.backing.DefaultImageSelectionBean</managed-bean-class>
+      <managed-bean-scope id="__19">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="addImage">
+      <display-name id="__20">Upload a New Image</display-name>
+      <page>/fragments/imageLOV/addImage.jsff</page>
+      <train-stop id="__4">
+      <display-name>Upload a New Image</display-name>
+      </train-stop>
+    </view>
+    <view id="setDefaultImage">
+      <display-name id="__21">Default Employee Image</display-name>
+      <page>/fragments/imageLOV/setDefaultImage.jsff</page>
+      <train-stop id="__5">
+      <display-name>Default Employee Image</display-name>
+      </train-stop>
+    </view>
+    <task-flow-return id="lovDone">
+      <outcome id="__6">
+        <name>refresh</name>
+      </outcome>
+    </task-flow-return>
+    <train/>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__7">*</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">finish</from-outcome>
+        <to-activity-id id="__9">lovDone</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

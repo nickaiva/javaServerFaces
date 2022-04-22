@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="Edit employee">
+      <af:form id="f1" usesUpload="true">
+        <af:pageTemplate viewId="/WEB-INF/templates/tuhraTemplate.jspx"
+                         value="#{bindings.pageTemplateBinding}" id="pt1">
+          <f:facet name="content">
+            <af:panelSplitter id="ps1" splitterPosition="140"
+                              positionedFromEnd="false">
+              <f:facet name="first">
+                <af:panelGroupLayout id="pgl1" layout="vertical">
+                  <af:spacer width="10" height="10" id="s1"/>
+                  <af:commandLink id="searchLink" partialSubmit="true"
+                                  action="search">
+                    <af:panelGroupLayout id="pgl2" halign="center"
+                                         valign="middle" layout="vertical">
+                      <af:image source="images/search.png" id="i1"
+                                shortDesc="Search for Employees"
+                                inlineStyle="width:120.0px;"/>
+                      <af:outputLabel value="Return to Employee Search" id="ol1"
+                                      for="searchLink"/>
+                    </af:panelGroupLayout>
+                    <af:setPropertyListener from="#{'EMPLOYEE_SEARCH'}"
+                                            to="#{uiState.searchScreenFocus}"
+                                            type="action"/>
+                  </af:commandLink>
+                  <f:facet name="separator">
+                    <af:spacer width="10" height="20" id="s2"/>
+                  </f:facet>
+                </af:panelGroupLayout>
+              </f:facet>
+              <f:facet name="second">
+                <af:region value="#{bindings.editEmployeeflow1.regionModel}"
+                           id="r1"/>
+              </f:facet>
+            </af:panelSplitter>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

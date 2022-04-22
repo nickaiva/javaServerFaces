@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="templateTestPageDef"
+                Package="tuhra.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="templates.tuhraTemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <taskFlow id="editEmployeeflow1"
+              taskFlowId="/WEB-INF/editEmployee-flow.xml#editEmployee-flow"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="employeeId" value="101"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

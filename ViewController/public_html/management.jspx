@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="management">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:pageTemplate viewId="/WEB-INF/templates/tuhraTemplate.jspx"
+                         value="#{bindings.pageTemplateBinding}" id="pt1">
+          <f:facet name="content">
+            <af:panelSplitter id="panelSplitter1" splitterPosition="140"
+                              positionedFromEnd="false">
+              <f:facet name="first">
+                <af:panelGroupLayout id="pgl1" layout="vertical">
+                  <af:spacer width="10" height="10" id="s1"/>
+                  <af:commandLink id="searchLink" partialSubmit="true"
+                                  action="search">
+                    <af:panelGroupLayout id="pgl2" halign="center"
+                                         valign="middle" layout="vertical">
+                      <af:image source="images/search.png" id="i1"
+                                shortDesc="Search for Employees"
+                                inlineStyle="width:120.0px;"/>
+                      <af:outputLabel value="Return to Employee Search" id="ol1"
+                                      for="searchLink"/>
+                    </af:panelGroupLayout>
+                    <af:setPropertyListener from="#{'EMPLOYEE_SEARCH'}"
+                                            to="#{uiState.searchScreenFocus}"
+                                            type="action"/>
+                  </af:commandLink>
+                  <f:facet name="separator">
+                    <af:spacer width="10" height="20" id="s2"/>
+                  </f:facet>
+                </af:panelGroupLayout>
+              </f:facet>
+              <f:facet name="second">
+               
+                  <af:panelTabbed id="pt2" styleClass="width:100%">
+                    <af:showDetailItem text="Job Codes" id="sdi1"
+                                       stretchChildren="first">
+                      <af:panelCollection id="pc1">
+                        <f:facet name="menus">
+                          <af:menu text="Data" id="m2">
+                          <af:commandMenuItem actionListener="#{bindings.Execute1.execute}"
+                                              text="Refresh"
+                                              disabled="#{!bindings.Execute1.enabled}"
+                                              id="cmi1" partialTriggers="t1"/>
+                          <af:group id="g1">
+                            <af:commandMenuItem actionListener="#{bindings.CreateInsert.execute}"
+                                                text="Create new Job"
+                                                disabled="#{!bindings.CreateInsert.enabled}"
+                                                id="cmi2" partialTriggers="t1"/>
+                            <af:commandMenuItem actionListener="#{bindings.Delete1.execute}"
+                                                text="Delete job"
+                                                disabled="#{!bindings.Delete1.enabled}"
+                                                id="cmi3" partialTriggers="t1"/>
+                          </af:group>
+                        </af:menu>
+                        </f:facet>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.AllJobCodes.collectionModel}"
+                                  var="row"
+                                  rows="#{bindings.AllJobCodes.rangeSize}"
+                                  emptyText="#{bindings.AllJobCodes.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.AllJobCodes.rangeSize}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.AllJobCodes.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.AllJobCodes.collectionModel.makeCurrent}"
+                                  rowSelection="single" id="t1"
+                                  partialTriggers="::cmi1 ::cmi2 ::cmi3">
+                          <af:column sortProperty="JobId" sortable="true"
+                                     headerText="#{bindings.AllJobCodes.hints.JobId.label}"
+                                     id="c1">
+                            <af:inputText value="#{row.bindings.JobId.inputValue}"
+                                          label="#{bindings.AllJobCodes.hints.JobId.label}"
+                                          required="#{bindings.AllJobCodes.hints.JobId.mandatory}"
+                                          columns="#{bindings.AllJobCodes.hints.JobId.displayWidth}"
+                                          maximumLength="#{bindings.AllJobCodes.hints.JobId.precision}"
+                                          shortDesc="#{bindings.AllJobCodes.hints.JobId.tooltip}"
+                                          id="it2">
+                              <f:validator binding="#{row.bindings.JobId.validator}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column sortProperty="JobTitle" sortable="true"
+                                     headerText="#{bindings.AllJobCodes.hints.JobTitle.label}"
+                                     id="c4" width="200">
+                            <af:inputText value="#{row.bindings.JobTitle.inputValue}"
+                                          label="#{bindings.AllJobCodes.hints.JobTitle.label}"
+                                          required="#{bindings.AllJobCodes.hints.JobTitle.mandatory}"
+                                          columns="#{bindings.AllJobCodes.hints.JobTitle.displayWidth}"
+                                          maximumLength="#{bindings.AllJobCodes.hints.JobTitle.precision}"
+                                          shortDesc="#{bindings.AllJobCodes.hints.JobTitle.tooltip}"
+                                          id="it1">
+                              <f:validator binding="#{row.bindings.JobTitle.validator}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column sortProperty="MaxSalary" sortable="true"
+                                     headerText="#{bindings.AllJobCodes.hints.MaxSalary.label}"
+                                     id="c2">
+                            <af:inputText value="#{row.bindings.MaxSalary.inputValue}"
+                                          label="#{bindings.AllJobCodes.hints.MaxSalary.label}"
+                                          required="#{bindings.AllJobCodes.hints.MaxSalary.mandatory}"
+                                          columns="#{bindings.AllJobCodes.hints.MaxSalary.displayWidth}"
+                                          maximumLength="#{bindings.AllJobCodes.hints.MaxSalary.precision}"
+                                          shortDesc="#{bindings.AllJobCodes.hints.MaxSalary.tooltip}"
+                                          id="it4">
+                              <f:validator binding="#{row.bindings.MaxSalary.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.AllJobCodes.hints.MaxSalary.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column sortProperty="MinSalary" sortable="true"
+                                     headerText="#{bindings.AllJobCodes.hints.MinSalary.label}"
+                                     id="c3">
+                            <af:inputText value="#{row.bindings.MinSalary.inputValue}"
+                                          label="#{bindings.AllJobCodes.hints.MinSalary.label}"
+                                          required="#{bindings.AllJobCodes.hints.MinSalary.mandatory}"
+                                          columns="#{bindings.AllJobCodes.hints.MinSalary.displayWidth}"
+                                          maximumLength="#{bindings.AllJobCodes.hints.MinSalary.precision}"
+                                          shortDesc="#{bindings.AllJobCodes.hints.MinSalary.tooltip}"
+                                          id="it3">
+                              <f:validator binding="#{row.bindings.MinSalary.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.AllJobCodes.hints.MinSalary.format}"/>
+                            </af:inputText>
+                          </af:column>
+                        </af:table>
+                      </af:panelCollection>
+                    </af:showDetailItem>
+                    <af:showDetailItem text="Departments" id="showDetailItem1"
+                                       stretchChildren="first">
+                      <af:panelCollection id="pc2">
+                        <f:facet name="menus">
+                          <af:menu text="Data" id="m3">
+                          <af:commandMenuItem actionListener="#{bindings.Execute.execute}"
+                                              text="Refresh"
+                                              disabled="#{!bindings.Execute.enabled}"
+                                              id="cmi4" partialTriggers="t2"/>
+                          <af:group id="g2">
+                            <af:commandMenuItem actionListener="#{bindings.CreateInsert1.execute}"
+                                                text="Create new department"
+                                                disabled="#{!bindings.CreateInsert1.enabled}"
+                                                id="cmi5" partialTriggers="t2"/>
+                            <af:commandMenuItem actionListener="#{bindings.Delete.execute}"
+                                                text="Delete department"
+                                                disabled="#{!bindings.Delete.enabled}"
+                                                id="cmi6" partialTriggers="t2"/>
+                          </af:group>
+                        </af:menu>
+                        </f:facet>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                      <af:table value="#{bindings.AllDepartmentCodes.collectionModel}"
+                                var="row"
+                                rows="#{bindings.AllDepartmentCodes.rangeSize}"
+                                emptyText="#{bindings.AllDepartmentCodes.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                fetchSize="#{bindings.AllDepartmentCodes.rangeSize}"
+                                rowBandingInterval="0"
+                                selectedRowKeys="#{bindings.AllDepartmentCodes.collectionModel.selectedRow}"
+                                selectionListener="#{bindings.AllDepartmentCodes.collectionModel.makeCurrent}"
+                                rowSelection="single" id="t2"
+                                partialTriggers="::cmi5 ::cmi6 ::cmi4"
+                                columnStretching="last">
+                        <af:column sortProperty="DepartmentId" sortable="true"
+                                   headerText="#{bindings.AllDepartmentCodes.hints.DepartmentId.label}"
+                                   id="c8">
+                          <af:inputText value="#{row.bindings.DepartmentId.inputValue}"
+                                        label="#{bindings.AllDepartmentCodes.hints.DepartmentId.label}"
+                                        required="#{bindings.AllDepartmentCodes.hints.DepartmentId.mandatory}"
+                                        columns="#{bindings.AllDepartmentCodes.hints.DepartmentId.displayWidth}"
+                                        maximumLength="#{bindings.AllDepartmentCodes.hints.DepartmentId.precision}"
+                                        shortDesc="#{bindings.AllDepartmentCodes.hints.DepartmentId.tooltip}"
+                                        id="it6">
+                            <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.AllDepartmentCodes.hints.DepartmentId.format}"/>
+                          </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="DepartmentName" sortable="true"
+                                   headerText="#{bindings.AllDepartmentCodes.hints.DepartmentName.label}"
+                                   id="c5" width="200">
+                          <af:inputText value="#{row.bindings.DepartmentName.inputValue}"
+                                        label="#{bindings.AllDepartmentCodes.hints.DepartmentName.label}"
+                                        required="#{bindings.AllDepartmentCodes.hints.DepartmentName.mandatory}"
+                                        columns="#{bindings.AllDepartmentCodes.hints.DepartmentName.displayWidth}"
+                                        maximumLength="#{bindings.AllDepartmentCodes.hints.DepartmentName.precision}"
+                                        shortDesc="#{bindings.AllDepartmentCodes.hints.DepartmentName.tooltip}"
+                                        id="it8">
+                            <f:validator binding="#{row.bindings.DepartmentName.validator}"/>
+                          </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="LocationId" sortable="true"
+                                   headerText="#{bindings.AllDepartmentCodes.hints.LocationId.label}"
+                                   id="c7">
+                          <af:inputText value="#{row.bindings.LocationId.inputValue}"
+                                        label="#{bindings.AllDepartmentCodes.hints.LocationId.label}"
+                                        required="#{bindings.AllDepartmentCodes.hints.LocationId.mandatory}"
+                                        columns="#{bindings.AllDepartmentCodes.hints.LocationId.displayWidth}"
+                                        maximumLength="#{bindings.AllDepartmentCodes.hints.LocationId.precision}"
+                                        shortDesc="#{bindings.AllDepartmentCodes.hints.LocationId.tooltip}"
+                                        id="it7">
+                            <f:validator binding="#{row.bindings.LocationId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.AllDepartmentCodes.hints.LocationId.format}"/>
+                          </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="ManagerId" sortable="true"
+                                   headerText="#{bindings.AllDepartmentCodes.hints.ManagerId.label}"
+                                   id="c6">
+                          <af:inputText value="#{row.bindings.ManagerId.inputValue}"
+                                        label="#{bindings.AllDepartmentCodes.hints.ManagerId.label}"
+                                        required="#{bindings.AllDepartmentCodes.hints.ManagerId.mandatory}"
+                                        columns="#{bindings.AllDepartmentCodes.hints.ManagerId.displayWidth}"
+                                        maximumLength="#{bindings.AllDepartmentCodes.hints.ManagerId.precision}"
+                                        shortDesc="#{bindings.AllDepartmentCodes.hints.ManagerId.tooltip}"
+                                        id="it5">
+                            <f:validator binding="#{row.bindings.ManagerId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.AllDepartmentCodes.hints.ManagerId.format}"/>
+                          </af:inputText>
+                        </af:column>
+                      </af:table>
+                    </af:panelCollection>
+                    </af:showDetailItem>
+                  </af:panelTabbed>
+                
+              </f:facet>
+            </af:panelSplitter>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

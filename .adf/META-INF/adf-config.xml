@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adf-config xmlns="http://xmlns.oracle.com/adf/config"
+            xmlns:adf="http://xmlns.oracle.com/adf/config/properties"
+            xmlns:sec="http://xmlns.oracle.com/adf/security/config">
+  <adf:adf-properties-child xmlns="http://xmlns.oracle.com/adf/config/properties">
+    <adf-property name="adfAppUID" value="tuhra2.tuhra"/>
+  </adf:adf-properties-child>
+  <sec:adf-security-child xmlns="http://xmlns.oracle.com/adf/security/config">
+    <CredentialStoreContext credentialStoreClass="oracle.adf.share.security.providers.jps.CSFCredentialStore"
+                            credentialStoreLocation="../../src/META-INF/jps-config.xml"/>
+    <sec:JaasSecurityContext initialContextFactoryClass="oracle.adf.share.security.JAASInitialContextFactory"
+                             jaasProviderClass="oracle.adf.share.security.providers.jps.JpsSecurityContext"
+                             authorizationEnforce="true"
+                             authenticationRequire="true"/>
+  </sec:adf-security-child>
+  <adf-controller-config xmlns="http://xmlns.oracle.com/adf/controller/config">
+    <enable-grammar-validation>false</enable-grammar-validation>
+  </adf-controller-config>
+</adf-config>

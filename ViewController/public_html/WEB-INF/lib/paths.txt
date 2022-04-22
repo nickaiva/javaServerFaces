@@ -1,0 +1,25 @@
+===============================================
+Found: Authentication
+Class: weblogic.security.services.Authentication
+Package: weblogic.security.services
+Library Name: weblogic.jar
+Library Path: C:\oracle\Middleware\wlserver_10.3\server\lib\weblogic.jar
+===============================================
+ 
+===============================================
+Found: Authentication
+Class: weblogic.servlet.security.ServletAuthentication
+Package: weblogic.servlet.security
+Library Name: weblogic.jar
+Library Path: C:\oracle\Middleware\wlserver_10.3\server\lib\weblogic.jar
+===============================================
+ 
+
+C:\oracle\Middleware\modules\com.bea.core.weblogic.security.auth_1.0.0.0.jar for SimpleCallbackHandler
+===============================================
+Found: AuthenticatedSubject
+Class: weblogic.security.acl.internal.AuthenticatedSubject
+Package: weblogic.security.acl.internal
+Library Name: wlthint3client.jar
+Library Path: C:\oracle\Middleware\wlserver_10.3\server\lib\wlthint3client.jar
+===============================================

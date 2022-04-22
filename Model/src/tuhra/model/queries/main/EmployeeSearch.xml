@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeeSearch"
+  Version="11.1.1.55.36"
+  SelectList="Employees.EMPLOYEE_ID, 
+       Employees.FIRST_NAME, 
+       Employees.LAST_NAME, 
+       Employees.EMAIL, 
+       Employees.PHONE_NUMBER, 
+       Departments.DEPARTMENT_NAME, 
+       Jobs.JOB_TITLE, 
+       Departments.DEPARTMENT_ID, 
+       Jobs.JOB_ID"
+  FromList="EMPLOYEES Employees, DEPARTMENTS Departments, JOBS Jobs"
+  Where="(Employees.DEPARTMENT_ID = Departments.DEPARTMENT_ID) AND (Employees.JOB_ID = Jobs.JOB_ID)"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="tuhra.model.framework.TuhraViewRowImpl"
+  ComponentClass="tuhra.model.framework.TuhraViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  OrderBy="Employees.LAST_NAME,Employees. FIRST_NAME">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <Variable
+    Name="QueryFirstName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="QueryLastName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="QueryEmail"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <EntityUsage
+    Name="Employees"
+    Entity="tuhra.model.entities.Employees"/>
+  <EntityUsage
+    Name="Departments"
+    Entity="tuhra.model.entities.Departments"
+    Association="tuhra.model.entities.assoc.EmpDeptFkAssoc"
+    AssociationEnd="tuhra.model.entities.assoc.EmpDeptFkAssoc.Departments1"
+    SourceUsage="tuhra.model.queries.main.EmployeeSearch.Employees"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="tuhra.model.entities.Employees.DepartmentId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="tuhra.model.entities.Departments.DepartmentId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Jobs"
+    Entity="tuhra.model.entities.Jobs"
+    Association="tuhra.model.entities.assoc.EmpJobFkAssoc"
+    AssociationEnd="tuhra.model.entities.assoc.EmpJobFkAssoc.Jobs"
+    SourceUsage="tuhra.model.queries.main.EmployeeSearch.Employees"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="tuhra.model.entities.Employees.JobId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="tuhra.model.entities.Jobs.JobId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="EmployeeId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="EmployeeId"
+    EntityUsage="Employees"
+    AliasName="EMPLOYEE_ID"/>
+  <ViewAttribute
+    Name="FirstName"
+    PrecisionRule="true"
+    EntityAttrName="FirstName"
+    EntityUsage="Employees"
+    AliasName="FIRST_NAME"/>
+  <ViewAttribute
+    Name="LastName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastName"
+    EntityUsage="Employees"
+    AliasName="LAST_NAME"/>
+  <ViewAttribute
+    Name="Email"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Email"
+    EntityUsage="Employees"
+    AliasName="EMAIL"/>
+  <ViewAttribute
+    Name="PhoneNumber"
+    PrecisionRule="true"
+    EntityAttrName="PhoneNumber"
+    EntityUsage="Employees"
+    AliasName="PHONE_NUMBER"/>
+  <ViewAttribute
+    Name="DepartmentName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentName"
+    EntityUsage="Departments"
+    AliasName="DEPARTMENT_NAME"/>
+  <ViewAttribute
+    Name="JobTitle"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="JobTitle"
+    EntityUsage="Jobs"
+    AliasName="JOB_TITLE"/>
+  <ViewAttribute
+    Name="DepartmentId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentId"
+    EntityUsage="Departments"
+    AliasName="DEPARTMENT_ID"/>
+  <ViewAttribute
+    Name="JobId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="JobId"
+    EntityUsage="Jobs"
+    AliasName="JOB_ID"/>
+  <ViewCriteria
+    Name="BasicEmployeeSearchCriteria"
+    ViewObjectName="tuhra.model.queries.main.EmployeeSearch"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="displayName"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="FirstName"
+        ViewAttribute="FirstName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":QueryFirstName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="LastName"
+        ViewAttribute="LastName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":QueryLastName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Email"
+        ViewAttribute="Email"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":QueryEmail"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="EmployeeId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="tuhra.model.resources.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

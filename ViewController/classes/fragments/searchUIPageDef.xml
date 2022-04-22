@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="searchUIPageDef" Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeeSearch" RangeSize="25"
+              DataControl="TuhraServiceDataControl"
+              id="EmployeeSearchIterator"/>
+    <searchRegion Criteria="BasicEmployeeSearchCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="EmployeeSearchIterator"
+                  id="BasicEmployeeSearchCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EmployeeSearchIterator" id="EmployeeSearch">
+      <nodeDefinition DefName="tuhra.model.queries.main.EmployeeSearch"
+                      Name="EmployeeSearch0">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="JobTitle"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="DepartmentName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="EmployeeSearchIterator" id="EmployeeId">
+      <AttrNames>
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeeSearchIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeeSearchIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeeSearchIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeeSearchIterator" id="PhoneNumber">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeeSearchIterator" id="DepartmentName">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeeSearchIterator" id="JobTitle">
+      <AttrNames>
+        <Item Value="JobTitle"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

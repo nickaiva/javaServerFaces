@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout topHeight="180px" id="psl1" bottomHeight="0px"
+                         startWidth="50px" endWidth="50px">
+<f:facet name="top">
+    <af:panelHeader text="Enter Search Criteria" id="ph1">
+      <af:query id="basicEmployeeSearchCriteriaQuery" headerText="Search" disclosed="true"
+                value="#{bindings.BasicEmployeeSearchCriteriaQuery.queryDescriptor}"
+                model="#{bindings.BasicEmployeeSearchCriteriaQuery.queryModel}"
+                queryListener="#{bindings.BasicEmployeeSearchCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.BasicEmployeeSearchCriteriaQuery.processQueryOperation}"
+                resultComponentId="::pc1:basicEmployeeSearchCriteriaQueryResult"
+                displayMode="compact"/>
+    </af:panelHeader>
+    </f:facet>
+    <f:facet name="center">
+    <af:panelCollection id="pc1">
+      <f:facet name="menus">
+          <af:menu text="Actions" id="m1">
+            <af:commandMenuItem text="Edit Employee" id="cmi4" action="edit"
+                                rendered="#{securityContext.userInRole['manager']}">
+              <af:setPropertyListener from="#{bindings.EmployeeId.inputValue.value}"
+                                      to="#{uiState.editEmployeeId}"
+                                      type="action"/><!--#{bindings.EmployeeId.inputValue.value}-->
+            </af:commandMenuItem>
+            <af:commandMenuItem text="Export to Excel" id="cmi1"
+                                disabled="#{bindings.EmployeeSearch.estimatedRowCount lt 1 }"
+                                partialTriggers="::basicEmployeeSearchCriteriaQuery">
+              <af:exportCollectionActionListener exportedId="basicEmployeeSearchCriteriaQueryResult"
+                                                 type="excelHTML"
+                                                 filename="SearchResults"
+                                                 title="TUHRA Employee Search Results"/>
+            </af:commandMenuItem>
+            <af:commandMenuItem text="View Employee" id="cmi2">
+              <af:showPopupBehavior popupId="::empDetailPopup"
+                                    triggerType="action"/>
+            </af:commandMenuItem>
+          </af:menu>
+        </f:facet>
+      <f:facet name="toolbar"/>
+      <f:facet name="statusbar"/>
+      <af:table value="#{bindings.EmployeeSearch.collectionModel}" var="row"
+                rows="#{bindings.EmployeeSearch.rangeSize}"
+                emptyText="#{bindings.EmployeeSearch.viewable ? 'No data to display.' : 'Access Denied.'}"
+                fetchSize="#{bindings.EmployeeSearch.rangeSize}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.EmployeeSearch.collectionModel.selectedRow}"
+                selectionListener="#{bindings.EmployeeSearch.collectionModel.makeCurrent}"
+                rowSelection="single"
+                id="basicEmployeeSearchCriteriaQueryResult" filterVisible="true"
+                columnStretching="last">
+        <af:column sortProperty="FirstName" sortable="true"
+                   headerText="#{bindings.EmployeeSearch.hints.FirstName.label}"
+                   id="resId1c1">
+          <af:outputText value="#{row.FirstName}" id="ot2"/>
+        </af:column>
+        <af:column sortProperty="LastName" sortable="true"
+                   headerText="#{bindings.EmployeeSearch.hints.LastName.label}"
+                   id="resId1c2">
+          <af:outputText value="#{row.LastName}" id="ot4"/>
+        </af:column>
+        <af:column sortProperty="JobTitle" sortable="true"
+                   headerText="#{bindings.EmployeeSearch.hints.JobTitle.label}"
+                   id="resId1c3" width="150">
+          <af:outputText value="#{row.JobTitle}" id="ot6"/>
+        </af:column>
+        <af:column headerText="Contact Information" id="resId1c4">
+          <af:column sortProperty="Email" sortable="true"
+                     headerText="#{bindings.EmployeeSearch.hints.Email.label}"
+                     id="c1">
+            <af:outputText value="#{row.Email}" id="ot1"/>
+          </af:column>
+          <af:column sortProperty="PhoneNumber" sortable="true"
+                     headerText="#{bindings.EmployeeSearch.hints.PhoneNumber.label}"
+                     id="c2" width="150">
+            <af:outputText value="#{row.PhoneNumber}" id="ot5"/>
+          </af:column>
+        </af:column>
+        <af:column sortProperty="DepartmentName" sortable="true"
+                   headerText="#{bindings.EmployeeSearch.hints.DepartmentName.label}"
+                   id="resId1c5">
+          <af:outputText value="#{row.DepartmentName}" id="ot3"/>
+        </af:column>
+          <f:facet name="contextMenu">
+            <af:popup id="contextMenu">
+              <af:menu text="menu 1" id="m2">
+                <af:commandMenuItem text="View Employee" id="cmi3">
+                  <af:showPopupBehavior popupId=":::empDetailPopup"
+                                        triggerType="action"/>
+                </af:commandMenuItem>
+                <af:commandMenuItem text="Edit Employee" id="cmi5"
+                                    action="edit"
+                                    rendered="#{securityContext.userInRole['manager']}"><!--rendered="#{securityContext.userInRole['manager']}"-->
+                  <af:setPropertyListener from="#{row.EmployeeId.value}"
+                                          to="#{uiState.editEmployeeId}"
+                                          type="action"/><!--row.EmployeeId.value-->
+                </af:commandMenuItem>
+              </af:menu>
+            </af:popup>
+          </f:facet>
+        </af:table>
+        <f:facet name="viewMenu"/>
+      </af:panelCollection>
+    </f:facet>
+    <f:facet name="bottom">
+      <af:panelGroupLayout layout="scroll"
+                           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                           id="pgl1">
+        <af:popup id="empDetailPopup" contentDelivery="lazyUncached">
+          <af:dialog id="d1" title="Employee Detail" type="ok">
+            <af:panelFormLayout id="pfl1">
+              <af:panelLabelAndMessage label="#{bindings.EmployeeId.hints.label}"
+                                       id="plam3">
+                <af:outputText value="#{bindings.EmployeeId.inputValue}"
+                               id="ot12"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.FirstName.hints.label}"
+                                       id="plam7">
+                <af:outputText value="#{bindings.FirstName.inputValue}"
+                               id="ot13"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.LastName.hints.label}"
+                                       id="plam4">
+                <af:outputText value="#{bindings.LastName.inputValue}"
+                               id="ot8"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.Email.hints.label}"
+                                       id="plam2">
+                <af:outputText value="#{bindings.Email.inputValue}" id="ot11"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.PhoneNumber.hints.label}"
+                                       id="plam5">
+                <af:outputText value="#{bindings.PhoneNumber.inputValue}"
+                               id="ot7"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.DepartmentName.hints.label}"
+                                       id="plam1">
+                <af:outputText value="#{bindings.DepartmentName.inputValue}"
+                               id="ot9"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.JobTitle.hints.label}"
+                                       id="plam6">
+                <af:outputText value="#{bindings.JobTitle.inputValue}"
+                               id="ot10"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

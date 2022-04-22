@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.55.36" id="DataBindings" SeparateXMLFiles="false"
+             Package="tuhra.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/templates/tuhraTemplate.jspx"
+          usageId="tuhra_view_tuhraTemplatePageDef"/>
+    <page path="/templateTest.jspx" usageId="tuhra_view_templateTestPageDef"/>
+    <page path="/employeeSearch.jspx"
+          usageId="tuhra_view_employeeSearchPageDef"/>
+    <page path="/fragments/searchUI.jsff" usageId="tuhra_view_searchUIPageDef"/>
+    <page path="/fragments/departmentTree.jsff"
+          usageId="tuhra_view_departmentTreePageDef"/>
+    <page path="/fragments/editEmployee.jsff"
+          usageId="tuhra_view_editEmployeePageDef"/>
+    <page path="/WEB-INF/templates/tuhraTrainTemplate.jspx"
+          usageId="tuhra_view_tuhraTrainTemplatePageDef"/>
+    <page path="/fragments/imageLOV/addImage.jsff"
+          usageId="tuhra_view_addImagePageDef"/>
+    <page path="/fragments/imageLOV/setDefaultImage.jsff"
+          usageId="tuhra_view_setDefaultImagePageDef"/>
+    <page path="/employeeEdit.jspx" usageId="tuhra_view_employeeEditPageDef"/>
+    <page path="/WEB-INF/editEmployee-flow.xml#editEmployee-flow@queryEmployeeById"
+          usageId="tuhra_view_editEmployee_flow_editEmployee_flow_queryEmployeeByIdPageDef"/>
+    <page path="/management.jspx" usageId="tuhra_view_managementPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="tuhra_view_tuhraTemplatePageDef"
+          path="templates.tuhraTemplatePageDef"/>
+    <page id="tuhra_view_templateTestPageDef"
+          path="tuhra.view.pageDefs.templateTestPageDef"/>
+    <page id="tuhra_view_employeeSearchPageDef"
+          path="tuhra.view.pageDefs.employeeSearchPageDef"/>
+    <page id="tuhra_view_searchUIPageDef" path="fragments.searchUIPageDef"/>
+    <page id="tuhra_view_departmentTreePageDef"
+          path="fragments.departmentTreePageDef"/>
+    <page id="tuhra_view_editEmployeePageDef"
+          path="fragments.editEmployeePageDef"/>
+    <page id="tuhra_view_tuhraTrainTemplatePageDef"
+          path="templates.tuhraTrainTemplatePageDef"/>
+    <page id="tuhra_view_addImagePageDef"
+          path="fragments.imageLOV.addImagePageDef"/>
+    <page id="tuhra_view_setDefaultImagePageDef"
+          path="fragments.imageLOV.setDefaultImagePageDef"/>
+    <page id="tuhra_view_searchPageDef"
+          path="tuhra.view.pageDefs.searchPageDef"/>
+    <page id="tuhra_view_employeeEditPageDef"
+          path="tuhra.view.pageDefs.employeeEditPageDef"/>
+    <page id="tuhra_view_editEmployee_flow_editEmployee_flow_queryEmployeeByIdPageDef"
+          path="tuhra.view.pageDefs.editEmployee_flow_editEmployee_flow_queryEmployeeByIdPageDef"/>
+    <page id="tuhra_view_managementPageDef"
+          path="tuhra.view.pageDefs.managementPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="TuhraServiceDataControl" Package="tuhra.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="TuhraServiceLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="tuhra.model.services.TuhraService">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.default.country="EL" jbo.project="tuhra.model.Model" name="TuhraServiceLocal" ApplicationName="tuhra.model.services.TuhraService">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="tuhra.model.services.TuhraService"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/HR_DBDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="TuhraServiceShared" ApplicationName="tuhra.model.services.TuhraService" DeployPlatform="LOCAL" JDBCName="HR_DB" jbo.project="tuhra.model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="tuhra.model.services.TuhraService"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

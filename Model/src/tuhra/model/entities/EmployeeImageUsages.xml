@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeeImageUsages"
+  Version="11.1.1.55.36"
+  Extends="tuhra.model.entities.ImageUsages"
+  DBObjectType="table"
+  DBObjectName="IMAGE_USAGES"
+  AliasName="EmployeeImageUsages"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="UsageType"
+    IsNotNull="true"
+    DiscrColumn="true"
+    DefaultValue="E"
+    Precision="1"
+    ColumnName="USAGE_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IMAGE_USAGES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_OverrideAttr" Value="true"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Employees"
+    Association="tuhra.model.entities.assoc.EmployeeImageUsagesAssoc"
+    AssociationEnd="tuhra.model.entities.assoc.EmployeeImageUsagesAssoc.Employees"
+    AssociationOtherEnd="tuhra.model.entities.assoc.EmployeeImageUsagesAssoc.EmployeeImageUsages"
+    Type="tuhra.model.entities.EmployeesImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SysC2">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010021"/>
+      <Attr Name="_checkCondition" Value='"USAGE_TYPE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="tuhra.model.entities.EmployeeImageUsages.UsageType"/>
+    </AttrArray>
+  </Key>
+</Entity>

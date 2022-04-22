@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="setDefaultImagePageDef"
+                Package="fragments.imageLOV">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="templates.tuhraTrainTemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="EditEmployee" RangeSize="25"
+              DataControl="TuhraServiceDataControl" id="EditEmployeeIterator"/>
+    <iterator Binds="AllEmployeeImages" RangeSize="25"
+              DataControl="TuhraServiceDataControl"
+              id="AllEmployeeImagesIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EditEmployeeIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EditEmployeeIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="AllEmployeeImagesIterator" id="AllEmployeeImages">
+      <nodeDefinition DefName="tuhra.model.queries.main.AllEmployeeImages"
+                      Name="AllEmployeeImages0">
+        <AttrNames>
+          <Item Value="ImageId"/>
+          <Item Value="Image"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction IterBinding="EditEmployeeIterator" id="defineDefaultImage"
+                  InstanceName="bindings.EditEmployeeIterator.currentRow"
+                  DataControl="TuhraServiceDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="defineDefaultImage" IsViewObjectMethod="false"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="newDefaultImageId" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

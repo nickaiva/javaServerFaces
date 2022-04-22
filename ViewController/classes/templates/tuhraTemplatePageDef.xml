@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="tuhraTemplatePageDef"
+                Package="templates">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="UserInfo" RangeSize="10"
+              DataControl="TuhraServiceDataControl" id="UserInfoIterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="TuhraServiceDataControl"/>
+    <attributeValues IterBinding="UserInfoIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserInfoIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserInfoIterator" id="EmployeeId">
+      <AttrNames>
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

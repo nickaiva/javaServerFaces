@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/WEB-INF/templates/tuhraTrainTemplate.jspx"
+                   value="#{bindings.pageTemplateBinding}" id="pt1">
+    <f:facet name="trainContent">
+      <af:panelFormLayout id="pfl1">
+        <f:facet name="footer"/>
+        <af:inputFile label="New image to upload" id="upload"
+                      autoSubmit="true"
+                      valueChangeListener="#{pageFlowScope.imageUploadBB.fileUploadedListener}"/>
+        <af:image shortDesc="Uploaded Image" id="i1"
+                  inlineStyle="width:180px; height:180px;"
+                  partialTriggers="upload"
+                  rendered="#{! empty pageFlowScope.imageUploadBB.uploadedImageName}"
+                  source="#{pageFlowScope.imageUploadBB.uploadedImageName}"/>
+      </af:panelFormLayout>
+    </f:facet>
+    <f:attribute name="pageDescription"
+                 value="In this page you can upload a new image to the system for use with this user."/>
+    <f:attribute name="pageUse" value="Upload a New Image"/>
+  </af:pageTemplate>
+</jsp:root>
